@@ -1,0 +1,47 @@
+{
+  "name": "test-weather-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "rm -rf dist && babel src -d dist --source-maps",
+    "start": "node src/api.js --exec babel-node",
+    "dev": "nodemon src/api.js --exec babel-node",
+    "serve": "node dist/api.js",
+    "debug": "nodemon --inspect src/api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdelysAlberto/test-weather-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdelysAlberto/test-weather-node/issues"
+  },
+  "homepage": "https://github.com/AdelysAlberto/test-weather-node#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "md5": "^2.2.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "2.22.0"
+  }
+}
