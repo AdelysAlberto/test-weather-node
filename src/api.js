@@ -9,12 +9,10 @@ const routes = require("./routes");
 
 const app = express();
 app.use(bodyParser.json())
-    .use(bodyParser.urlencoded({
-        extended: true
-    }))
+    .use(bodyParser.urlencoded({ extended: true }))
     .use(morgan("tiny"));
 
-const whitelist = [ "http://localhost:3000", "http://example2.com" ];
+const whitelist = [ "*", "http://localhost:3000", "http://example2.com" ];
 app.use(cors({
     origin(origin, callback) {
         if (!origin) return callback(null, true);
@@ -33,7 +31,7 @@ app.get("/", (req, res) => {
 
 app.use("/", routes);
 app.get("*", (req, res) => {
-    res.send("Wops! Not Found", 404);
+    res.status(400).send({ message: "not found" });
 });
 
 app.listen(process.env.PORT, () => {

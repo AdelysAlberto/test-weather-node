@@ -1,8 +1,8 @@
 import express from "express";
-import CurrentController from "../controllers/current.controller";
+import currentController from "../controllers/current.controller";
 
 const router = new express.Router();
 
-router.get("/current/:city", CurrentController.getCurrentWeather);
+router.get("/current/:city?", currentController.getCurrentWeather);
 
 module.exports = router;
