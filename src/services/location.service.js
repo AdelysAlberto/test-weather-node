@@ -1,13 +1,19 @@
-import WeatherException from "../config/custom-exception";
+const Axios = require("axios");
 
 class LocationService {
-    async getLocation() {
-        const getWeather = "Current";
-        return {
-            status: 200,
-            payload: getWeather
-        };
+    async getLocation(ip) {
+        try {
+            const { data } = await Axios.get(`${process.env.URI_IP_API}${ip}`);
+            if (!data || data.status === "fail") {
+                throw Error();
+            }
+            const { country, countryCode, regionName, city, lat, lon, query, isp } = data;
+
+            return { country, countryCode, regionName, city, lat, lon, query, isp };
+        } catch (e) {
+            throw Error();
+        }
     }
 }
 
-export default new LocationService();
+module.exports = new LocationService();

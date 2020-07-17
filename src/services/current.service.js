@@ -1,13 +1,18 @@
-import WeatherException from "../config/custom-exception";
+const Axios = require("axios");
 
 class CurrentService {
-    async getCurrentWeather() {
-        const getWeather = "Weather";
-        return {
-            status: 200,
-            payload: getWeather
-        };
+    async getCurrentWeather(city) {
+        try {
+            const { data } = await Axios.get(`${process.env.URI_CURRENT_WEATHER}${city}${process.env.APPI_KEY_WEATHER}`);
+            if (!data) {
+                throw Error();
+            }
+            const { name, main, weather } = data;
+            return { name, weather, main };
+        } catch (e) {
+            throw Error();
+        }
     }
 }
 
-export default new CurrentService();
+module.exports = new CurrentService();

@@ -29,10 +29,11 @@ module.exports = {
     "array-bracket-spacing": ["error", "always"],
     "comma-dangle": ["error", { functions: "never" }],
     "max-len": ["error", { code: 120, ignoreUrls: true }],
-    "indent": ["error", 4],
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
+    indent: ["error", 4],
+    semi: ["error", "always"],
+    quotes: ["error", "double"],
     "class-methods-use-this": 0,
-    "import/no-named-as-default": 0
+    "import/no-named-as-default": 0,
+    "object-curly-newline": ["error", { "multiline": true }]
   }
 };

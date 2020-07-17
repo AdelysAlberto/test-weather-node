@@ -1,6 +1,6 @@
-import CurrentService from "./current.service";
-import ForecastService from "./forecast.service";
-import LocationService from "./location.service";
+const CurrentService = require("./current.service");
+const ForecastService = require("./forecast.service");
+const LocationService = require("./location.service");
 
 module.exports = {
     CurrentService,

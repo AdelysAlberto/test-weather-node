@@ -1,6 +1,6 @@
-import CurrentController from "./current.controller";
-import LocationController from "./location.controller";
-import ForecastController from "./forecast.controller";
+const CurrentController = require("./current.controller");
+const LocationController = require("./location.controller");
+const ForecastController = require("./forecast.controller");
 
 module.exports = {
     CurrentController,
