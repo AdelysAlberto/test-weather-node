@@ -3,7 +3,7 @@
 API REST TO GET CURRENT WEATHER AND FORECAST WEATHER
 
 ## SWAGGER TEST ONLINE 
-[Try me](https://wather-adalbeca.herokuapp.com/api-docs "API IN HEROKU" target="_blank")
+[Try me](https://wather-adalbeca.herokuapp.com/api-docs "API IN HEROKU"){:target="_blank" rel="noopener"}
 
 
 ## Installation and Setup Instructions
