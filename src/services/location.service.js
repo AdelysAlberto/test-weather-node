@@ -1,9 +1,9 @@
-import Axios from "axios";
+const Axios = require("axios");
 
 class LocationService {
     async getLocation(ip) {
         try {
-            const { data } = await Axios.get(`${process.env.URI_IP_API}${ip || ""}`);
+            const { data } = await Axios.get(`${process.env.URI_IP_API}${ip}`);
             if (!data || data.status === "fail") {
                 throw Error();
             }
@@ -16,4 +16,4 @@ class LocationService {
     }
 }
 
-export default new LocationService();
+module.exports = new LocationService();

@@ -1,11 +1,16 @@
-import WeatherException from "../utils/custom-exception";
-import currentService from "../services/current.service";
+const WeatherException = require("../utils/custom-exception");
+const CurrentService = require("../services/current.service");
+const locationController = require("./location.controller");
 
 class CurrentController {
     async getCurrentWeather(req, res) {
-        const { city } = req.params;
+        let { city } = req.params;
+        if (!city) {
+            const location = await locationController.getLocationToJson(req, res);
+            city = location.city;
+        }
         try {
-            const weather = await currentService.getCurrentWeather(city);
+            const weather = await CurrentService.getCurrentWeather(city);
             res.status(200).send(weather);
         } catch (e) {
             res.status(404).send({ msg: "Weather Not found" });
@@ -14,4 +19,4 @@ class CurrentController {
     }
 }
 
-export default new CurrentController();
+module.exports = new CurrentController();

@@ -4,9 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "rm -rf dist && babel src -d dist --source-maps",
-    "start": "node src/api.js --exec babel-node",
-    "dev": "nodemon src/api.js --exec babel-node",
+    "copy": "cp .env dist && cp src/swagger.json dist",
+    "clean": "rm -r dist && mkdir -f dist",
+    "build": "rm -rf dist && babel src -d dist --source-maps && npm run copy",
+    "start": "node dist/api.js",
+    "dev": "nodemon src/api.js --exec",
     "serve": "node dist/api.js",
     "debug": "nodemon --inspect src/api.js"
   },
@@ -32,7 +34,9 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "md5": "^2.2.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

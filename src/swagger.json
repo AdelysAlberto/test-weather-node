@@ -1,0 +1,132 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Weather Api for practical Exam",
+        "description": "Node Application API"
+    },
+    "host": "127.0.0.1",
+    "basePath": "/v1",
+    "schemes": [
+        "http", "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/location": {
+            "get": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Get actual ip from server side",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/location/{ipPublic}": {
+            "parameters": [
+                {
+                    "ip": "ipPublic",
+                    "name": "ipPublic",
+                    "in": "path",
+                    "required": true,
+                    "description": "IP Public or DNS",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Get location from IP Public",
+                "responses": {
+                    "200": {
+                        "description": "a information of Location object",
+                        "content": "application/json"
+                    }
+                }
+            }
+        },
+        "/current": {
+            "get": {
+                "tags": [
+                    "Current"
+                ],
+                "summary": "Get current weather information, from current location",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/current/{city}": {
+            "parameters": [
+                {
+                    "ip": "city",
+                    "name": "city",
+                    "in": "path",
+                    "required": true,
+                    "description": "City / municipality or Country",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Current"
+                ],
+                "summary": "Get current weather information, from specific location",
+                "responses": {
+                    "200": {
+                        "description": "a information of weather object",
+                        "content": "application/json"
+                    }
+                }
+            }
+        },
+        "/forecast": {
+            "get": {
+                "tags": [
+                    "Forecast"
+                ],
+                "summary": "Get forecast weather information (4 days), from current location",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/forecast/{ipPublic}": {
+            "parameters": [
+                {
+                    "ip": "city",
+                    "name": "city",
+                    "in": "path",
+                    "required": true,
+                    "description": "City / municipality or Country",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Forecast"
+                ],
+                "summary": "Get forecast weather information (4 days), from specific location",
+                "responses": {
+                    "200": {
+                        "description": "a information of weather object",
+                        "content": "application/json"
+                    }
+                }
+            }
+        }
+    }
+}

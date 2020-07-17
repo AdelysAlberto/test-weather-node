@@ -1,9 +1,14 @@
-import WeatherException from "../utils/custom-exception";
-import forecastService from "../services/forecast.service";
+const WeatherException = require("../utils/custom-exception");
+const forecastService = require("../services/forecast.service");
+const locationController = require("./location.controller");
 
 class ForecastController {
     async getForecast(req, res) {
-        const { city } = req.params;
+        let { city } = req.params;
+        if (!city) {
+            const location = await locationController.getLocationToJson(req, res);
+            city = location.city;
+        }
         try {
             const weather = await forecastService.getForecast(city);
             res.status(200).send(weather);
@@ -14,4 +19,4 @@ class ForecastController {
     }
 }
 
-export default new ForecastController();
+module.exports = new ForecastController();

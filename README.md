@@ -2,6 +2,10 @@
 
 API REST TO GET CURRENT WEATHER AND FORECAST WEATHER
 
+## SWAGGER TEST ONLINE 
+[Try me](https://wather-adalbeca.herokuapp.com/api-doc)
+
+
 ## Installation and Setup Instructions
 
 #### Begin:  
@@ -29,7 +33,10 @@ URI_FORECAST_WEATHER=http://api.openweathermap.org/data/2.5/forecast?q=
 APPI_KEY_WEATHER=&appid={{ PUT API KEY HERE }}`
 
 
+## Swagger Docs
+`http://localhost:9091/api-docs/`
+
 ####  Endoints available
-`localhost:9010/v1/location/ip` 
-`localhost:9010/v1/current/:city` 
-`localhost:9010/v1/forecast/:city`
+`localhost:9091/v1/location/ip` 
+`localhost:9091/v1/current/:city` 
+`localhost:9091/v1/forecast/:city`
