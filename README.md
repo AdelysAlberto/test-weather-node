@@ -1,32 +1,31 @@
 # test-weather-node
 
-API REST TO GET CURRENT WEATHER AND FORECAST WEATHER
+REST API to serve weather data and forecast consuming data from openWeather api, and geolocation by IP through ip-api
+
+## used libraries
+* axios
+* cors
+* dotenv
+* express
+* morgan
+* swagger-jsdoc
+* swagger-ui-express
 
 ## SWAGGER TEST ONLINE 
 [Try me](https://wather-adalbeca.herokuapp.com/api-docs "API IN HEROKU")
 
+## APP ONLINE HEROKU
+[Try me](https://weather-adalbeca-react.herokuapp.com/ "APP IN HEROKU" )
+
 ## API REST ONLINE HEROKU
 [Try me](https://wather-adalbeca.herokuapp.com/v1 "API IN HEROKU" )
-
-
 
 ## Installation and Setup Instructions
 
 #### Begin:  
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
-
-Installation:
-
-`npm install`  
-
-To Run Test Suite:  
-
-`npm test`  
-
-To Start Server Dev Mode:
-
-`npm dev`  
+`git clone https://github.com/AdelysAlberto/test-weather-node.git`  
 
 ---
 #### before start api, configure enviroment (.env)
@@ -34,7 +33,27 @@ To Start Server Dev Mode:
 URI_IP_API=http://ip-api.com/json/
 URI_CURRENT_WEATHER=http://api.openweathermap.org/data/2.5/weather?q=
 URI_FORECAST_WEATHER=http://api.openweathermap.org/data/2.5/forecast?q=
-APPI_KEY_WEATHER=&appid={{ PUT API KEY HERE }}`
+
+// openWeather need register and API KEY
+APPI_KEY_WEATHER=&appid=PUT API KEY HERE`
+
+
+Installation:
+
+`npm install`  
+
+To Start Server Dev Mode:
+
+`npm dev`  
+
+To Build production version
+
+`npm build`  
+
+To execute build mode 
+
+`npm start`  
+
 
 
 ## Swagger Docs
