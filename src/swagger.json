@@ -3,7 +3,7 @@
     "info": {
         "version": "1.0.0",
         "title": "Weather Api for practical Exam",
-        "description": "Node Application API"
+        "description": "Node Application API, in localhost use request HTTP, but in production Mode use request HTTPS"
     },
     "host": "127.0.0.1",
     "basePath": "/v1",

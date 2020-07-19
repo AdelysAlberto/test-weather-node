@@ -17,12 +17,17 @@ const parseForecast = (objectData) => {
     };
     objectData.list.forEach((weather) => {
         if (!filterForecast.weather.find((weather_) => {
-            const compare1 = new Date(weather_.dt_txt).toLocaleDateString();
+            const compare1 = new Date(weather_.date).toLocaleDateString();
             const compare2 = new Date(weather.dt_txt).toLocaleDateString();
             return compare1 === compare2;
         })) {
-            const { main, dt_txt } = weather;
-            filterForecast.weather.push({ main, dt_txt });
+            const body = {
+                temp: weather.main.temp,
+                humidity: weather.main.humidity,
+                description: weather.weather[0].description,
+                icon: weather.weather[0].icon
+            };
+            filterForecast.weather.push({ body, date: weather.dt_txt });
         }
     });
     filterForecast.city = objectData.city;
