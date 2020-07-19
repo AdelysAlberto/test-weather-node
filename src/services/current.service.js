@@ -7,8 +7,9 @@ class CurrentService {
             if (!data) {
                 throw Error();
             }
+
             const { name, main, weather } = data;
-            return { name, weather, main };
+            return { name, country: data.sys.country, weather, main };
         } catch (e) {
             throw Error();
         }
